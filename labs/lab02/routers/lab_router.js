@@ -1,3 +1,9 @@
+/*
+    /name
+    /greeting
+    /add
+    /calculate
+*/
 import express from "express";
 const router = express.Router();
 
@@ -10,10 +16,12 @@ router.get("/name", (req, res)=>{
     res.send("Ohanson Chidebere")
 })
 
+// greeting
 router.get("/greeting", (req, res)=>{
     res.send("How are you doing?")
 })
 
+// add
 router.get("/add/:x/:y", (req, res)=>{
     let x = parseFloat(req.params.x);
     let y = parseFloat(req.params.y);
@@ -21,7 +29,7 @@ router.get("/add/:x/:y", (req, res)=>{
     res.send(`${x + y}`);
 })
 
-
+// calculate
 router.get("/calculate/:a/:b/:operation", (req, res)=> {
     let a = parseFloat(req.params.a);
     let b = parseFloat(req.params.b);
@@ -42,14 +50,15 @@ router.get("/calculate/:a/:b/:operation", (req, res)=> {
             res.send(`${a * b}`);
             break;
 
-        case "/":
+        case "/": //->%2f
             
             res.send(`${a / b}`);
             break;
         
             
             default: 
-            res.send("WRONG OPERATION");    
+            res.send("WRONG OPERATION"); 
+            break;   
     }
 })
 
